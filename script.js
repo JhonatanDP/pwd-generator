@@ -43,24 +43,47 @@ console.log (lenghtConfirm);
           return generatePassword ();
         } //Four selections check
         else if (lowerConfirm && upperConfirm && numberConfim && specialConfirm){
-          userSelector=alphabetLow.concat(alphabetUp,number,specialCh);
+          userSelector = alphabetLow.concat(alphabetUp,number,specialCh);
         }
         //Three selections check
         else if (lowerConfirm && upperConfirm && numberConfim){      //
-        userSelector=alphabetLow.concat(alphabetUp,number);          //
+        userSelector = alphabetLow.concat(alphabetUp,number);          //
         }
         else if (lowerConfirm && upperConfirm && specialConfirm){    //
-          userSelector=alphabetLow.concat(alphabetUp,specialCh);     //
+          userSelector = alphabetLow.concat(alphabetUp,specialCh);     //
         }
         else if (lowerConfirm && numberConfim && specialConfirm){   //
-          userSelector=alphabetLow.concat(number,specialCh);        //
+          userSelector = alphabetLow.concat(number,specialCh);        //
         }
         else if (upperConfirm && numberConfim && specialConfirm){  //
-          userSelector=alphabetUp.concat(number,specialCh);        //
+          userSelector = alphabetUp.concat(number,specialCh);        //
         }
         //two selections check
-      }
+        else if (lowerConfirm && upperConfirm) {
+          userSelector = alphabetLow.concat(alphabetUp);
+        }
+        else if (lowerConfirm && numberConfim) {
+        userSelector = alphabetLow.concat(number);
+        }
+        else if (lowerConfirm && specialConfirm){
+          userSelector = alphabetLow.concat(specialCh);
+        }
+        else if (upperConfirm && numberConfim){
+          userSelector = alphabetUp.concat(number);
+        }
+        else if (upperConfirm && specialConfirm){
+          userSelector = alphabetUp.concat(specialCh);
+        }
+        else if (numberConfim && specialConfirm){
+          userSelector = number.concat(specialCh);
+        }
+        //One Selection Check
+        else if (lowerConfirm){
+          userSelector=alphabetLow
+        }
 
+      }
+  
 
   };
 
