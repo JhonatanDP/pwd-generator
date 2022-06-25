@@ -38,26 +38,27 @@ console.log (lenghtConfirm);
       upperConfirm = confirm("Do you want to include Uppercase characters?");
       numberConfim = confirm("Do you want to include numbers?");
       specialConfirm = confirm("Do you want to include special characters?");
-        if (!lowerConfirm && !upperConfirm && !numberConfim && !specialConfirm){
+        if (!lowerConfirm && !upperConfirm && !numberConfim && !specialConfirm){  //Check if none was selectec
           window.alert("You need to make at least one selection");
           return generatePassword ();
-        }
+        } //Four selections check
         else if (lowerConfirm && upperConfirm && numberConfim && specialConfirm){
           userSelector=alphabetLow.concat(alphabetUp,number,specialCh);
         }
-        else if (lowerConfirm && upperConfirm && numberConfim){
-        userSelector=alphabetLow.concat(alphabetUp,number);
+        //Three selections check
+        else if (lowerConfirm && upperConfirm && numberConfim){      //
+        userSelector=alphabetLow.concat(alphabetUp,number);          //
         }
-        else if (lowerConfirm && upperConfirm && specialConfirm){
-          userSelector=alphabetLow.concat(alphabetUp,specialCh);
+        else if (lowerConfirm && upperConfirm && specialConfirm){    //
+          userSelector=alphabetLow.concat(alphabetUp,specialCh);     //
         }
-        else if (lowerConfirm && numberConfim && specialConfirm){
-          userSelector=alphabetLow.concat(number,specialCh);
+        else if (lowerConfirm && numberConfim && specialConfirm){   //
+          userSelector=alphabetLow.concat(number,specialCh);        //
         }
-        else if (upperConfirm && numberConfim && specialConfirm){
-          userSelector=alphabetUp.concat(number,specialCh);
+        else if (upperConfirm && numberConfim && specialConfirm){  //
+          userSelector=alphabetUp.concat(number,specialCh);        //
         }
-
+        //two selections check
       }
 
 
