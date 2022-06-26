@@ -17,13 +17,15 @@ pwdHolder =[]; //Hold the password before converting it to string
 var pwdString;  //Hold the password after using join to remove "" and converted it to string
 
 
+
 alphabetLow.forEach(element => {alphabetUp.push(element.toUpperCase())}); //Creating the Uppercase array from the lowercase array
 
 //Funtion to generate the passord
 var generatePassword = function() {
-  
+
 //Declaration of the variable to hold the value of the user input, in this case will be a string
 var lenghtConfirmprompt = window.prompt("Please type the lenght for the password.  Choose between 8 and 128 Characters");
+
 lenghtConfirm = parseInt(lenghtConfirmprompt);  //converting the string user input into a number
 
     if (lenghtConfirmprompt === "" || lenghtConfirm < 8 || lenghtConfirm > 128)  {
@@ -101,7 +103,6 @@ lenghtConfirm = parseInt(lenghtConfirmprompt);  //converting the string user inp
 
       //convert pwdHolder to string
       pwdString = pwdHolder.join("");
-      debugger;
      // writePassword(pwdString);
       return pwdString;
   };
@@ -119,5 +120,7 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
 
 
