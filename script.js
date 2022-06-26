@@ -13,21 +13,23 @@ alphabetUp = [];
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 //special characters
 specialCh = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+pwdHolder =[]; //Hold the password before converting it to string
+var pwdString;  //Hold the password after using join to remove "" and converted it to string
+
 
 alphabetLow.forEach(element => {alphabetUp.push(element.toUpperCase())}); //Creating the Uppercase array from the lowercase array
-console.log(alphabetUp);
 
 //Funtion to generate the passord
-generatePassword = function() {
-debugger;
+var generatePassword = function() {
+  
+//Declaration of the variable to hold the value of the user input, in this case will be a string
 var lenghtConfirmprompt = window.prompt("Please type the lenght for the password.  Choose between 8 and 128 Characters");
-lenghtConfirm = parseInt(lenghtConfirmprompt);
-console.log (lenghtConfirm);
+lenghtConfirm = parseInt(lenghtConfirmprompt);  //converting the string user input into a number
 
     if (lenghtConfirmprompt === "" || lenghtConfirm < 8 || lenghtConfirm > 128)  {
         window.alert("You need to provide a number between 8 and 128.");
 
-        return generatePassword ();
+        return generatePassword();
     }
     else if (lenghtConfirmprompt === null) {
              window.alert("You have selected to cancel the request.");
@@ -40,7 +42,7 @@ console.log (lenghtConfirm);
       specialConfirm = confirm("Do you want to include special characters?");
         if (!lowerConfirm && !upperConfirm && !numberConfim && !specialConfirm){  //Check if none was selectec
           window.alert("You need to make at least one selection");
-          return generatePassword ();
+          return generatePassword();
         } //Four selections check
         else if (lowerConfirm && upperConfirm && numberConfim && specialConfirm){
           userSelector = alphabetLow.concat(alphabetUp,number,specialCh);
@@ -79,12 +81,29 @@ console.log (lenghtConfirm);
         }
         //One Selection Check
         else if (lowerConfirm){
-          userSelector=alphabetLow
+          userSelector = alphabetLow;
+        }
+        else if (upperConfirm){
+          userSelector = alphabetUp;
+        }
+        else if (numberConfim){
+          userSelector = number;
+        }
+        else if (specialConfirm){
+          userSelector = specialCh;
         }
 
       }
-  
+      for (var i = 0; i < lenghtConfirm; i++) {
+        var userRandom = userSelector[Math.floor(Math.random() * userSelector.length)];
+        pwdHolder.push(userRandom);
+      }
 
+      //convert pwdHolder to string
+      pwdString = pwdHolder.join("");
+      debugger;
+     // writePassword(pwdString);
+      return pwdString;
   };
 
 // Get references to the #generate element
@@ -96,7 +115,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
