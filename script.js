@@ -42,60 +42,86 @@ lenghtConfirm = parseInt(lenghtConfirmprompt);  //converting the string user inp
       upperConfirm = confirm("Do you want to include Uppercase characters?");
       numberConfim = confirm("Do you want to include numbers?");
       specialConfirm = confirm("Do you want to include special characters?");
-        if (!lowerConfirm && !upperConfirm && !numberConfim && !specialConfirm){  //Check if none was selectec
+        if (!lowerConfirm && !upperConfirm && !numberConfim && !specialConfirm){  //Check if none was selected
           window.alert("You need to make at least one selection");
-          return generatePassword();
+          return generatePassword(); //Return to the start of the function
         } //Four selections check
         else if (lowerConfirm && upperConfirm && numberConfim && specialConfirm){
-          userSelector = alphabetLow.concat(alphabetUp,number,specialCh);
+          userSelector = alphabetLow.concat(alphabetUp,number,specialCh); //concat arrays selected together
         }
-        //Three selections check
-        else if (lowerConfirm && upperConfirm && numberConfim){      //
-        userSelector = alphabetLow.concat(alphabetUp,number);          //
+        //Three selections check Lowercase, uppercase and numbers
+        else if (lowerConfirm && upperConfirm && numberConfim){     
+        //merge arrays 
+        userSelector = alphabetLow.concat(alphabetUp,number);        
         }
-        else if (lowerConfirm && upperConfirm && specialConfirm){    //
-          userSelector = alphabetLow.concat(alphabetUp,specialCh);     //
+        //Check for lowercase, uppercase and special character
+        else if (lowerConfirm && upperConfirm && specialConfirm){    
+        //merge arrays
+          userSelector = alphabetLow.concat(alphabetUp,specialCh);     
         }
-        else if (lowerConfirm && numberConfim && specialConfirm){   //
-          userSelector = alphabetLow.concat(number,specialCh);        //
+        //check for lowercase, number and special character selection
+        else if (lowerConfirm && numberConfim && specialConfirm){   
+        //merge arrays
+          userSelector = alphabetLow.concat(number,specialCh);        
         }
-        else if (upperConfirm && numberConfim && specialConfirm){  //
-          userSelector = alphabetUp.concat(number,specialCh);        //
+        //check for uppercase, number and special character
+        else if (upperConfirm && numberConfim && specialConfirm){  
+        //merge arrays selected
+          userSelector = alphabetUp.concat(number,specialCh);        
         }
+
         //two selections check
+        //check for lowercase and uppercase
         else if (lowerConfirm && upperConfirm) {
+        //merge arrays lowercase and uppercase  
           userSelector = alphabetLow.concat(alphabetUp);
         }
+        //check for lowercase and number
         else if (lowerConfirm && numberConfim) {
+        //merge lowercase and number  
         userSelector = alphabetLow.concat(number);
         }
+        //check for lower case and special character
         else if (lowerConfirm && specialConfirm){
+        //merge lowercase and specual character  
           userSelector = alphabetLow.concat(specialCh);
         }
+        //check for uppercase and number
         else if (upperConfirm && numberConfim){
+        //merge Uppercase and number arrays  
           userSelector = alphabetUp.concat(number);
         }
+        //check for uppercase and special character
         else if (upperConfirm && specialConfirm){
+        //merge Uppercase and special character together
           userSelector = alphabetUp.concat(specialCh);
         }
+        //check for number and special character
         else if (numberConfim && specialConfirm){
+        //merge number and special character arrays
           userSelector = number.concat(specialCh);
         }
         //One Selection Check
+        //check for lower case
         else if (lowerConfirm){
           userSelector = alphabetLow;
         }
+        //check for uppercase
         else if (upperConfirm){
           userSelector = alphabetUp;
         }
+        //check for number
         else if (numberConfim){
           userSelector = number;
         }
+        //check for special character
         else if (specialConfirm){
           userSelector = specialCh;
         }
 
       }
+      //creating a new array using the math floor and math random taking in consideration the lenght 
+      //of the user input and using push for the new array.
       for (var i = 0; i < lenghtConfirm; i++) {
         var userRandom = userSelector[Math.floor(Math.random() * userSelector.length)];
         pwdHolder.push(userRandom);
