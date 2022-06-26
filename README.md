@@ -1,5 +1,17 @@
+# Password generator
 
-# password generator
+Project Repository address: https://github.com/JhonatanDP/pwd-generator
+
+Project live web page: https://jhonatandp.github.io/pwd-generator/
+
+
+## Full Site
+![jhonatandp github io_pwd-generator_](https://user-images.githubusercontent.com/106892660/175830889-eee81c26-0cca-41db-a941-52e54f52adb6.png)
+
+## Descripton
+
+- This project is about creating a password generator using javascript.  
+
 
 ### Acceptance Criteria
 
@@ -18,3 +30,16 @@
 - THEN a password is generated that matches the selected criteria
 - WHEN the password is generated
 - THEN the password is either displayed in an alert or written to the page
+
+
+## Work done to complete the challenge
+- I declared some variables that will save the user selection during the prompt.
+- I declared some variables with the corresponding arrays (lowercase, number and special character).
+- I created the uppercase array using toUpperCase method.
+- I declared a function called generatePassword () name was giving.
+- I declared a new variable to save the lenght. (user input)
+- I used if and else if to check variables based on user selections.
+- I divided those selection based on combinations.
+- I used concat to merge arrays selected by the user.
+- I used a for loop to created a random array based on the user selection and use join to removed "" and covert it to string.
+- I passed the value of the variable to the function to writePassword.
